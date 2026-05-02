@@ -77,7 +77,7 @@ body { font-family: 'Montserrat', sans-serif; background: #fff; overflow-x: hidd
     align-items: center;
     /* Emerald Gradient Overlay + Dubai Night Image */
     background: linear-gradient(rgba(2, 44, 34, 0.8), rgba(6, 78, 59, 0.7)), 
-                url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070');
+                url('images/uae-banner.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Parallax effect for premium feel */
