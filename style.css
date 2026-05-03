@@ -49,13 +49,31 @@ body, html {
 }
 
 /* Full Width Container - Yahan se gap khatam hoga */
+.slide-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    /* Text clarity ke liye sabse powerful properties */
+    image-rendering: -webkit-optimize-contrast; /* Chrome/Safari ke liye sharpness */
+    image-rendering: crisp-edges;               /* Firefox ke liye sharpness */
+    image-rendering: high-quality;              /* Browser ko best quality use karne ka order */
+    
+    /* Smoothing ko disable karne ke liye */
+    shape-rendering: geometricPrecision;
+    
+    /* Hardware acceleration takay image load hote hi phate nahi */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Container ko thora control mein rakhein takay image over-stretch na ho */
 .pdf-viewer-container {
-    width: 100%; /* Poori screen ki width */
-    max-width: 100%; /* Max-width hata di takay desktop par gap na aaye */
-    margin-top: 75px; /* Navbar ki wajah se gap */
-    padding: 0; 
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: 100%; 
+    margin-top: 75px;
+    padding: 0;
+    background: #ffffff;
 }
 
 #slides-wrapper {
@@ -70,20 +88,7 @@ body, html {
     line-height: 0; /* Images ke darmiyan pixel gap khatam karne ke liye */
 }
 
-.slide-box img {
-    width: 100%;
-    height: auto;
-    display: block;
-    
-    /* In 3 lines se text sharp ho jayega */
-    image-rendering: -webkit-optimize-contrast; 
-    image-rendering: crisp-edges;
-    image-rendering: pixelated; /* Agar text bohot chota hai toh ye try karein */
 
-    /* GPU acceleration for clarity */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
 
 /* Mobile Responsive Fixes */
 @media (max-width: 600px) {
