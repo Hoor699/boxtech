@@ -71,14 +71,18 @@ body, html {
 }
 
 .slide-box img {
-    width: 100%; /* Image poori screen cover karegi */
+    width: 100%;
     height: auto;
     display: block;
     
-    /* Clarity and Sharpness */
-    image-rendering: -webkit-optimize-contrast;
+    /* In 3 lines se text sharp ho jayega */
+    image-rendering: -webkit-optimize-contrast; 
     image-rendering: crisp-edges;
-    image-rendering: auto; /* Standard browsers ke liye */
+    image-rendering: pixelated; /* Agar text bohot chota hai toh ye try karein */
+
+    /* GPU acceleration for clarity */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 /* Mobile Responsive Fixes */
