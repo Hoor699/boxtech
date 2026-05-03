@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const slideContainer = document.createElement('div');
         slideContainer.className = 'slide-box animate__animated animate__fadeIn';
         
-        // Image source check karein ke folder name 'images' hi hai
+        
         slideContainer.innerHTML = `<img src="images/${i}.jpg" alt="BoxTech Slide ${i}" loading="lazy">`;
         
         wrapper.appendChild(slideContainer);
