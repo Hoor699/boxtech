@@ -1,400 +1,111 @@
-:root {
-    --emerald-light: #34d399; /* Lighter Emerald */
-    --emerald-main: #10b981;
-    --dark-emerald: #064e3b;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; background: #fff; overflow-x: hidden; }
-
-/* Navbar with Hover Shapes */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 8%; background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000;
-}
-/* Mobile Menu Toggle Styling */
-.menu-toggle {
-    display: none; /* Desktop par chhupa rahega */
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    height: 3px;
-    width: 25px;
-    background-color: #10b981; /* Emerald Green */
-    margin: 4px 0;
-    transition: 0.4s;
-    border-radius: 2px;
-}
-
-/* Responsive Media Query */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Mobile par icon dikhega */
-        z-index: 1001;
-    }
-
-    .nav-links {
-        position: fixed;
-        right: -100%; /* Shuru mein screen se bahar */
-        top: 0;
-        flex-direction: column;
-        background: rgba(65, 141, 123, 0.95); /* Deep Emerald Glass */
-        width: 70%;
-        height: 100vh;
-        justify-content: center;
-        transition: 0.5s;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-    }
-
-    .nav-links.active {
-        right: 0; /* Click karne par andar aa jayega */
-    }
-
-    .nav-links li {
-        margin: 20px 0;
-    }
-}
-.logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display'; font-weight: bold; font-size: 22px; }
-.nav-logo { height: 40px; width: auto; }
-
-.nav-links { display: flex; gap: 15px; list-style: none; }
-.nav-links a {
-    text-decoration: none; color: #333; padding: 10px 20px;
-    font-size: 13px; font-weight: 600; transition: 0.3s;
-    border-radius: 8px; /* Square/Rounded shape for hover */
-}
-.nav-links a:hover { background: var(--emerald-light); color: white; }
-
-/* Hero with Background Image */
-/* Hero Section with Emerald Dubai Night View */
-.hero-section {
-    height: 100vh;
+/* Overall Page Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Piche ka background pure white */
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* Emerald Gradient Overlay + Dubai Night Image */
-    background: linear-gradient(rgba(2, 44, 34, 0.8), rgba(6, 78, 59, 0.7)), 
-                url('images/uae-banner.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallax effect for premium feel */
-    position: relative;
-    margin-bottom: 100px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Perfect Center Text Alignment */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
+/* White Navbar */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffff; /* Navbar white */
+    color: #333;
+    z-index: 1000;
+    padding: 12px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka shadow takay white background par navbar dikhe */
+    border-bottom: 1px solid #eeeeee;
+}
+
+.nav-content {
     max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
 }
 
-.reveal-text {
-    font-size: 4rem;
-    font-family: 'Playfair Display', serif;
-    color: #ffffff;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    animation: fadeInUp 1s ease-out;
-    margin-bottom: 15px;
+/* Emerald Green Heading & Logo Align */
+.logo-img {
+    height: 55px; /* Pehle 32px tha, ab bada kar diya hai */
+    width: auto;  /* Width khud adjust ho jayegi */
+    object-fit: contain;
+    display: block;
 }
 
-.reveal-text-sub {
-    font-size: 1.4rem;
-    color: #34d399; /* Light Emerald */
+.brand-name {
+    font-size: 26px; /* BoxTech text ko bhi thora bada kiya hai */
+    font-weight: 700;
+    color: #13331e; 
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Logo aur Text ke darmiyan thora gap */
+}
+
+/* Download Button with Emerald Green */
+.btn-download {
+    background: #50C878; /* Emerald Green */
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    animation: fadeInUp 1.5s ease-out;
+    transition: background 0.3s ease;
 }
 
-/* Portfolio Title Fix */
-.portfolio-header {
-    text-align: center;
-    margin-bottom: 80px;
+.btn-download:hover {
+    background: #3e9c5d; /* Hover par thora dark green */
 }
 
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #022c22;
-    display: inline-block;
-    position: relative;
+/* PDF Container Fix */
+.pdf-viewer-container {
+    width: 100%;
+    max-width: 900px; 
+    margin-top: 80px; /* Navbar ke niche se shuru karne ke liye */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.section-title::after {
-    content: "";
-    width: 50%;
-    height: 4px;
-    background: #10b981;
-    position: absolute;
-    bottom: -15px;
-    left: 25%;
-    border-radius: 2px;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Text Transitions (Up/Down) */
-.reveal-text { animation: moveUp 1s ease-out forwards; font-size: 4rem; font-family: 'Playfair Display'; }
-.reveal-text-sub { animation: moveDown 1s ease-out forwards; color: var(--emerald-light); margin: 20px 0; }
-
-@keyframes moveUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-@keyframes moveDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-/* Glass Cards */
-/* Gallery Grid Setup */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Bigger cards for text clarity */
-    gap: 25px;
-    padding: 20px 0;
-}
-
-/* Clear Image Card */
-.glass-card {
-    background: #ffffff; /* White background for better contrast with text images */
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+#slides-wrapper {
     display: flex;
     flex-direction: column;
+    gap: 20px; /* Slides ke darmiyan gap */
 }
 
-.glass-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
-    border-color: #10b981;
+.slide-box {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Minimal shadow for professional look */
+    line-height: 0;
+    border: 1px solid #f0f0f0; /* White background par edges dikhane ke liye */
 }
 
-/* CRITICAL: Text Clarity Settings */
-.glass-card img {
+.slide-box img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain; /* Pura text image frame mein fit hoga */
-    image-rendering: -webkit-optimize-contrast; /* Text sharp karne ke liye */
-    image-rendering: crisp-edges;
-    padding: 10px; /* Space for text edges */
+    image-rendering: -webkit-optimize-contrast;
 }
 
-/* Card Label (Optional) */
-.card-label {
-    padding: 15px;
-    background: #f9fafb;
-    color: #022c22;
-    font-weight: 600;
-    text-align: center;
-    border-top: 1px solid #eee;
-}
-
-/* Thank You Image Clarity */
-.thank-you-container {
-    text-align: center;
-    margin-top: 60px;
-}
-.thank-you-img {
-    max-width: 800px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    image-rendering: high-quality;
-}
-@media (max-width: 768px) {
-    .reveal-text { font-size: 2.5rem; }
-    .reveal-text-sub { font-size: 1rem; letter-spacing: 2px; }
-    .hero-section { background-attachment: scroll; } /* Mobile par fixed background off */
-}
-/* Button Base Styling */
-.btn-primary {
-    padding: 15px 40px;
-    background: #10b981; /* Emerald Green */
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-/* Luxury Hover Effect */
-.btn-primary:hover {
-    background: #34d399; /* Lighter Emerald */
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(52, 211, 153, 0.5); /* Glow effect */
-    color: #022c22; /* Dark Green Text on Hover */
-}
-
-/* Shining Light effect on Hover */
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    transition: 0.6s;
-    z-index: -1;
-}
-
-.btn-primary:hover::before {
-    left: 100%;
-}
-/* Modal Background Overlay */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Pure black for focus */
-    backdrop-filter: blur(5px);
-    overflow-y: auto; /* Scroll if content is long */
-}
-
-/* Modal Content Container */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 90%; /* Default for mobile */
-    max-width: 1000px; /* Max width for desktop */
-    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-}
-
-/* Responsive Image Style */
-#modal-image-container {
-    width: 100%;
-    text-align: center;
-    background: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-#full-res-img {
-    width: 100%;
-    height: auto;
-    max-height: 75vh; /* Takes 75% of screen height max */
-    object-fit: contain; /* Pure image dikhayega bina kate */
-    display: block;
-    margin: 0 auto;
-}
-
-/* Close Button */
-.close {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    color: #333;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* --- Device Specific Adjustments --- */
-
-/* For Tablets (up to 992px) */
-@media (max-width: 992px) {
-    .modal-content {
-        width: 85%;
-        margin: 10% auto;
-    }
-}
-
-/* For Mobile (up to 600px) */
+/* Mobile Responsive Fixes */
 @media (max-width: 600px) {
-    .modal-content {
-        width: 95%; /* Mobile par zyada space lega */
-        margin: 15% auto;
-        padding: 10px; /* Padding kam taaki image bari dikhe */
+    .pdf-viewer-container {
+        padding: 5px;
+        margin-top: 70px;
     }
     
-    #full-res-img {
-        max-height: 60vh; /* Mobile par height thori kam rakhi hai */
+    .brand-name {
+        font-size: 18px;
     }
     
-    #modal-title {
-        font-size: 1.2rem;
+    .btn-download {
+        padding: 6px 12px;
+        font-size: 12px;
     }
-    
-    #modal-desc {
-        font-size: 0.9rem;
-    }
-}
-
-
-
-/* Sleek & Slim Premium Footer */
-.simple-footer {
-    background: #022c22; /* Deep Emerald Black */
-    padding: 30px 20px; /* Padding kam kar di gayi hai (Height reduction) */
-    text-align: center;
-    color: #ffffff;
-    border-top: 1px solid rgba(16, 185, 129, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Background "BOXTECH" Watermark Fix */
-.simple-footer::after {
-    content: "BOXTECH";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 6vw; /* Watermark ka size chota kiya gaya hai */
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    color: rgba(16, 185, 129, 0.03); 
-    white-space: nowrap;
-    pointer-events: none;
-}
-
-.simple-footer p {
-    font-size: 13px; /* Text thora chota kiya gaya hai */
-    letter-spacing: 1.5px;
-    font-weight: 300;
-    position: relative;
-    z-index: 2;
-    opacity: 0.7;
-    margin: 0;
-}
-
-/* Slim Indicator Line */
-.simple-footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px; /* Width kam kar di gayi hai */
-    height: 3px;
-    background: #10b981;
-    border-radius: 0 0 5px 5px;
 }

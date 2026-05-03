@@ -9,63 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-
-   <nav class="navbar animate__animated animate__fadeInDown">
-    <div class="logo">
-        <img src="logo.png" alt="" class="nav-logo">
-        <span>BOXTECH</span>
+    <!-- Simple Top Bar -->
+    <nav class="top-nav">
+    <div class="nav-content">
+        <div class="brand-name">
+            <!-- Logo yahan add karein -->
+            <img src="logo.png" alt="" class="logo-img"> 
+            <span>BoxTech</span>
+        </div>
+        
+        <!-- Download Button -->
+        <a href="Boxtech Profile1.2pdf.pdf" download="Boxtech_Profile.pdf" class="btn-download">
+            Download PDF
+        </a>
     </div>
-    
-    <!-- Hamburger Menu Icon for Mobile -->
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-
-    <ul class="nav-links" id="nav-list">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
 </nav>
 
-    <!-- Hero Section with Background Slide -->
-<section id="hero" class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1 class="reveal-text">Innovating Your Tech World</h1>
-        <p class="reveal-text-sub">Smart Solutions. Premium Design. Emerald Standards.</p>
-        <button class="btn-primary">Get Started</button>
+    <div class="pdf-viewer-container">
+        <div id="slides-wrapper"></div>
     </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio">
-    <div class="portfolio-header">
-        <h2 class="section-title animate__animated animate__fadeIn">Our Strategic Vision</h2>
-    </div>
-    <div class="gallery-grid" id="gallery">
-        <!-- JS will inject 15 cards + Thank You card -->
-    </div>
-</section>
-
-<!-- Image Viewer Modal -->
-<div id="details-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modal-image-container">
-            <img src="" id="full-res-img" alt="Slide Preview">
-        </div>
-        <h2 id="modal-title" class="emerald-text"></h2>
-        <p id="modal-desc"></p>
-    </div>
-</div>
-
-    <footer class="simple-footer">
-        <p>&copy; 2026 BOXTECH. All Rights Reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
