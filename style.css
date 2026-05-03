@@ -2,10 +2,12 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Piche ka background pure white */
+    background-color: #ffffff;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Center ke bajaye top to bottom flow */
+    align-items: center;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden; /* Horizontal scroll ko rokne ke liye */
 }
 
 /* White Navbar */
@@ -13,99 +15,119 @@ body, html {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #ffffff; /* Navbar white */
+    background: #ffffff;
     color: #333;
     z-index: 1000;
-    padding: 12px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka shadow takay white background par navbar dikhe */
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border-bottom: 1px solid #eeeeee;
 }
 
 .nav-content {
-    max-width: 900px;
+    width: 95%; /* Navbar ko thora gap dena professional lagta hai */
+    max-width: 1400px; 
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
-/* Emerald Green Heading & Logo Align */
-.logo-img {
-    height: 55px; /* Pehle 32px tha, ab bada kar diya hai */
-    width: auto;  /* Width khud adjust ho jayegi */
-    object-fit: contain;
-    display: block;
-}
-
+/* Emerald Green Heading */
 .brand-name {
-    font-size: 26px; /* BoxTech text ko bhi thora bada kiya hai */
+    font-size: 24px;
     font-weight: 700;
     color: #13331e; 
     display: flex;
     align-items: center;
-    gap: 12px; /* Logo aur Text ke darmiyan thora gap */
+    gap: 10px;
 }
 
-/* Download Button with Emerald Green */
-.btn-download {
-    background: #50C878; /* Emerald Green */
-    color: white;
-    text-decoration: none;
-    padding: 8px 18px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.3s ease;
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
-.btn-download:hover {
-    background: #3e9c5d; /* Hover par thora dark green */
-}
-
-/* PDF Container Fix */
+/* Full Width Container - Yahan se gap khatam hoga */
 .pdf-viewer-container {
-    width: 100%;
-    max-width: 900px; 
-    margin-top: 80px; /* Navbar ke niche se shuru karne ke liye */
-    padding: 10px;
-    box-sizing: border-box;
+    width: 100%; /* Poori screen ki width */
+    max-width: 100%; /* Max-width hata di takay desktop par gap na aaye */
+    margin-top: 75px; /* Navbar ki wajah se gap */
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
 }
 
 #slides-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Slides ke darmiyan gap */
+    gap: 0; /* Pages ke darmiyan space khatam */
 }
 
 .slide-box {
     width: 100%;
-    background: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Minimal shadow for professional look */
-    line-height: 0;
-    border: 1px solid #f0f0f0; /* White background par edges dikhane ke liye */
+    line-height: 0; /* Images ke darmiyan pixel gap khatam karne ke liye */
 }
 
 .slide-box img {
-    width: 100%;
+    width: 100%; /* Image poori screen cover karegi */
     height: auto;
     display: block;
+    
+    /* Clarity and Sharpness */
     image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: auto; /* Standard browsers ke liye */
 }
 
 /* Mobile Responsive Fixes */
 @media (max-width: 600px) {
-    .pdf-viewer-container {
-        padding: 5px;
-        margin-top: 70px;
+    .top-nav {
+        padding: 8px 0;
     }
     
     .brand-name {
         font-size: 18px;
     }
     
+    .logo-img {
+        height: 40px;
+    }
+
     .btn-download {
         padding: 6px 12px;
-        font-size: 12px;
+        font-size: 11px;
     }
+
+    .pdf-viewer-container {
+        margin-top: 65px; /* Mobile navbar ke liye adjust */
+    }
+}
+
+/* Download Button Styling */
+.btn-download {
+    background: #50C878; /* Emerald Green */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease; /* Hover effect ko smooth banane ke liye */
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover Effect - Jab mouse button par jaye */
+.btn-download:hover {
+    background: #3e9c5d; /* Darker Emerald Green */
+    transform: translateY(-2px); /* Button thora sa upar uthega */
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.3); /* Halka sa green glow */
+}
+
+/* Active Effect - Jab button ko click karein */
+.btn-download:active {
+    transform: translateY(0); /* Click karte waqt wapas apni jagah par */
 }
