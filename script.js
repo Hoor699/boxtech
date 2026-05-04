@@ -1,14 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
     const wrapper = document.getElementById('slides-wrapper');
-    const totalSlides = 15; // 0.jpg se 14.jpg tak
+ 
+    const totalSlides = 16; 
 
     for (let i = 0; i < totalSlides; i++) {
         const slideContainer = document.createElement('div');
         slideContainer.className = 'slide-box animate__animated animate__fadeIn';
         
+       
+        const img = document.createElement('img');
+        img.src = `images/${i}.jpg`; 
+        img.alt = `Slide ${i}`;
+        img.loading = "lazy";
         
-        slideContainer.innerHTML = `<img src="images/${i}.jpg" alt="BoxTech Slide ${i}" loading="lazy">`;
-        
+       
+        img.onerror = function() {
+            this.style.display = 'none'; 
+            console.log("Missing image: " + i + ".jpg");
+        };
+
+        slideContainer.appendChild(img);
         wrapper.appendChild(slideContainer);
     }
 });
